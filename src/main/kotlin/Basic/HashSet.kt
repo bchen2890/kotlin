@@ -7,6 +7,7 @@ fun printSet(title:String,set:HashSet<String>){
         println(element);
     }
 }
+
 fun printNumSet(title:String,set:HashSet<Int>){
     println("$title:");
     for(element in set)
@@ -14,6 +15,7 @@ fun printNumSet(title:String,set:HashSet<Int>){
         println(element);
     }
 }
+
 fun main(args: Array<String>) {
     var fruitsSet = HashSet<String>();
     val APPLE = "Apple";
