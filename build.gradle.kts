@@ -5,7 +5,7 @@ plugins {
     application
 }
 
-group = "me.binhu"
+group = "bchen.kotlin"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -18,6 +18,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    filter {
+        //include all tests from package
+        includeTestsMatching("*Test*")
+    }
 }
 
 tasks.withType<KotlinCompile>() {

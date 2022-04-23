@@ -77,9 +77,10 @@ fun main(args: Array<String>) {
     printSet("hashset 2", fruitsCopy);
     fruitsSet.removeAll(fruitsCopy);
     printSet("difference of hashset1 and hashset2", fruitsSet);
-
+    fruitsSet.addAll(fruitsList)
+    fruitsSet.add(APPLE)
     printSet("hashset", fruitsSet);
     fruitsSet.count { f -> f.length>5 }
     printSet("count of elements with length>5", fruitsSet);
-
+    println(fruitsSet.indexOf(APPLE))
 }
