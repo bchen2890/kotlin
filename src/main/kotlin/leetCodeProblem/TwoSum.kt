@@ -32,12 +32,29 @@ class TwoSum {
 
         for (i in nums.indices) {
             val diff = target-nums[i];
-            val found = numsSet.contains(diff);
-            if (found) {
+            if (numsSet.contains(diff)) {
                 res = intArrayOf(i, nums.indexOf(diff));
                 break;
             }
             numsSet.add(nums[i])
+        }
+        return res
+    }
+
+    /**
+     * HashMap Solution. Complexity O(n)
+     */
+    fun solutionHashMap(nums: IntArray, target: Int): IntArray {
+        var res = IntArray(2);
+        var numsMap = HashMap<Int, Int>();
+
+        for (i in nums.indices) {
+            val diff = target-nums[i];
+            if (numsMap.contains(diff)) {
+                res = intArrayOf(i, numsMap[diff]!!);
+                break;
+            }
+            numsMap[nums[i]] = i
         }
         return res
     }
