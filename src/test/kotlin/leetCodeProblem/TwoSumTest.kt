@@ -40,5 +40,7 @@ internal class TwoSumTest {
         assertEquals(target, (nums[sol[0]]+nums[sol[1]]));
         sol = testTwoSum.solutionHashMap(nums,target);
         assertEquals(target, (nums[sol[0]]+nums[sol[1]]));
+        sol = testTwoSum.solutionBinarySearch(nums,target);
+        assertEquals(target, (nums[sol[0]]+nums[sol[1]]));
     }
 }

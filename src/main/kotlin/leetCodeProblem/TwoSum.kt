@@ -24,6 +24,33 @@ class TwoSum {
     }
 
     /**
+     * Binary Search Solution. Complexity O(n·log(n))
+     */
+    fun solutionBinarySearch(nums: IntArray, target: Int): IntArray {
+        var res = IntArray(2);
+        var indices = IntArray(nums.size);
+
+        for (i in nums.indices)
+            indices[i]=i
+
+        indices.sortedWith { i, j -> nums[i] - nums[j] } //O(n·log(n))
+
+        var left = 0
+        var right = indices.size - 1
+        while (left < right) { //O(log(n))
+            val sum = nums[left] + nums[right]
+            if (sum == target) {
+                res = intArrayOf(left, right);
+                break
+            } else if (sum < target)
+                left++
+              else
+                right--
+        }
+        return res;
+    }
+
+    /**
      * HashSet Solution. Complexity O(n)
      */
     fun solutionHashSet(nums: IntArray, target: Int): IntArray {
