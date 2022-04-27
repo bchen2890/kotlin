@@ -33,6 +33,20 @@ internal class TwoSumTest {
         checkSum(target,nums)
     }
 
+    @Test
+    fun case5() {
+        val target = 13
+        val nums = intArrayOf(4,3,8,2,5)
+        checkSum(target,nums)
+    }
+
+    @Test
+    fun case6() {
+        val target = 62
+        val nums = intArrayOf(34,43,13,89,31,57,20,57,70,49,2,66,100)
+        checkSum(target,nums)
+    }
+
     private fun checkSum(target:Int, nums: IntArray){
         var sol = testTwoSum.solutionBruteForce(nums, target);
         assertEquals(target, (nums[sol[0]]+nums[sol[1]]));

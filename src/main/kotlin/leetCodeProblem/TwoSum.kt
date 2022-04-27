@@ -28,17 +28,14 @@ class TwoSum {
      */
     fun solutionBinarySearch(nums: IntArray, target: Int): IntArray {
         var res = IntArray(2);
-        var indices = IntArray(nums.size);
+        var sortedNums = nums.clone();
 
-        for (i in nums.indices)
-            indices[i]=i
-
-        indices.sortedWith { i, j -> nums[i] - nums[j] } //O(n·log(n))
-
+        sortedNums.sort() //O(n·log(n))
         var left = 0
-        var right = indices.size - 1
-        while (left < right) { //O(log(n))
-            val sum = nums[left] + nums[right]
+        var right = sortedNums.size - 1
+
+        while (left < right) { // Binary Search. O(log(n))
+            val sum = sortedNums[left] + sortedNums[right]
             if (sum == target) {
                 res = intArrayOf(left, right);
                 break
@@ -47,7 +44,24 @@ class TwoSum {
               else
                 right--
         }
-        return res;
+
+        //Find indices in original array. O(n)
+        var resIndices = IntArray(2);
+        for (i in nums.indices){
+            if(nums[i]==sortedNums[res[0]]) {
+                resIndices[0] = i
+                break;
+            }
+        }
+
+        for (i in nums.indices) {
+            if (i != resIndices[0] && nums[i] == sortedNums[res[1]]){
+                resIndices[1] = i
+                break;
+            }
+        }
+
+        return resIndices;
     }
 
     /**
