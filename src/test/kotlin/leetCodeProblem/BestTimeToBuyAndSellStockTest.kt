@@ -38,5 +38,7 @@ internal class BestTimeToBuyAndSellStockTest {
         assertEquals(maxExpected,max);
         max = testMaxProfit.maxProfitBruteForceOptimized(prices);
         assertEquals(maxExpected,max);
+        max = testMaxProfit.maxProfitBruteForceTimeOptimized(prices);
+        assertEquals(maxExpected,max);
     }
 }

@@ -6,8 +6,7 @@ package leetCodeProblem
             If there is not any profit, it returns 0.
  */
 class BestTimeToBuyAndSellStock {
-    /* Brute Force Solution. O(n^2)
-    * */
+    /* Brute Force Solution. O(n^2). Not accepted because of Time Limit Exceeded. */
     fun maxProfitBruteForce (prices:IntArray): Int {
         var max = 0;
         for (p in prices.indices){
@@ -18,14 +17,24 @@ class BestTimeToBuyAndSellStock {
         return max;
     }
 
-    /* Optimized Brute Force Solution. O(n)
-* */
+    /* Optimized Brute Force Solution. O(n) */
     fun maxProfitBruteForceOptimized (prices:IntArray): Int {
         var max = 0;
         var min = Int.MAX_VALUE;
         for (p in prices){
             min = minOf(min, p)
             max = maxOf(max,p-min)
+        }
+        return max;
+    }
+
+    /* Optimized Brute Force Without MaxOf and MinOf Solution. O(n). 35% better time than the above */
+    fun maxProfitBruteForceTimeOptimized (prices:IntArray): Int {
+        var max = 0;
+        var min = Int.MAX_VALUE;
+        for (p in prices){
+            if(max<p-min) max = p-min;
+            if(p<min) min = p;
         }
         return max;
     }
