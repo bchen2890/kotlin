@@ -6,7 +6,7 @@ package leetCodeProblem
  */
 class ContainsDuplicate {
     /**
-     * Brute-force Solution. Complexity O(n^2)
+     * Brute Force Solution. Complexity O(n^2)
      */
     fun solutionBruteForce (nums:IntArray):Boolean{
         for(i in nums.indices){
@@ -14,6 +14,17 @@ class ContainsDuplicate {
                 if (i!=j && nums[i]==nums[j])
                     return true;
             }
+        }
+        return false;
+    }
+    /**
+     * SortBefore Solution. Complexity O(n·log(n))
+     */
+    fun solutionSortBefore (nums:IntArray):Boolean{
+        nums.sort();
+        for(i in 1 until nums.size){
+            if (nums[i-1]==nums[i])
+                return true;
         }
         return false;
     }

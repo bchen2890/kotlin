@@ -7,7 +7,7 @@ package leetCodeProblem
  */
 class TwoSum {
     /**
-     * Brute-force Solution. Complexity O(n^2)
+     * Brute Force Solution. Complexity O(n^2)
      */
     fun solutionBruteForce(nums: IntArray, target: Int): IntArray {
         var res = IntArray(2);

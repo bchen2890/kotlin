@@ -26,5 +26,7 @@ internal class ContainsDuplicateTest {
     private fun checkMax(nums:IntArray, expected:Boolean){
         var contains = testDuplicate.solutionBruteForce(nums);
         assertEquals(expected, contains);
+        contains = testDuplicate.solutionSortBefore(nums);
+        assertEquals(expected, contains);
     }
 }
