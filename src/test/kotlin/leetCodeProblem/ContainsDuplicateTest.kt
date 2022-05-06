@@ -28,5 +28,7 @@ internal class ContainsDuplicateTest {
         assertEquals(expected, contains);
         contains = testDuplicate.solutionSortBefore(nums);
         assertEquals(expected, contains);
+        contains = testDuplicate.solutionHashSet(nums);
+        assertEquals(expected, contains);
     }
 }

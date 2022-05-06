@@ -28,4 +28,17 @@ class ContainsDuplicate {
         }
         return false;
     }
+
+    /**
+     * HashSet Solution. Complexity O(n)
+     */
+    fun solutionHashSet(nums:IntArray):Boolean{
+        var numSet = HashSet<Int>();
+        for (num in nums){
+            if(numSet.contains(num))
+                return true;
+            numSet.add(num)
+        }
+        return false;
+    }
 }
