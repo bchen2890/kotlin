@@ -8,23 +8,18 @@ package leetCodeProblem
  */
 class ProductOfArrayExceptSelf {
     fun solution(nums: IntArray): IntArray {
-        val n = nums.size
-        val prefix = IntArray(n)
-        val suffix = IntArray(n)
-        var answer = IntArray(n);
+        val suffix = IntArray(nums.size)
+        var answer = IntArray(nums.size);
         var left = 1;
         var right = 1;
 
-        for(i in 0 until n) {
-            prefix[i] = left
-            left *= nums[i]
-        }
-        for (i in (n-1) downTo 0) {
+        for (i in (nums.size-1) downTo 0) {
             suffix[i] = right
             right *= nums[i]
         }
-        for( i in 0 until n){
-            answer[i] = prefix[i] * suffix[i]
+        for( i in nums.indices){
+            answer[i] = left * suffix[i]
+            left *= nums[i]
         }
 
         return answer;
