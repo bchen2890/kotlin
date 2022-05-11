@@ -24,7 +24,9 @@ internal class MaximumSubarrayTest {
         checkMax(nums, expected);
     }
     fun checkMax(nums:IntArray,expected:Int){
-        val sol = testMaxSubarray.solutionBruteForce(nums);
+        var sol = testMaxSubarray.solutionBruteForce(nums);
+        assertEquals(expected,sol)
+        sol = testMaxSubarray.solutionBruteForceOptimized(nums);
         assertEquals(expected,sol)
     }
 }

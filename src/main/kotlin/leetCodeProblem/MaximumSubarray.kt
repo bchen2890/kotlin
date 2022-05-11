@@ -18,4 +18,14 @@ class MaximumSubarray {
         }
         return max
     }
+    /* Brute Force Optimized Solution. O(n) */
+    fun solutionBruteForceOptimized(nums: IntArray): Int {
+        var max = Int.MIN_VALUE
+        var sum = 0
+        for (i in nums.indices){
+            sum = nums[i].coerceAtLeast(sum+nums[i])
+            max = max.coerceAtLeast(sum)
+        }
+        return max
+    }
 }
