@@ -23,7 +23,7 @@ class MaximumSubarray {
         var max = Int.MIN_VALUE
         var sum = 0
         for (i in nums.indices){
-            sum = nums[i].coerceAtLeast(sum+nums[i])
+            sum = if(sum>0) sum+nums[i] else nums[i];
             max = max.coerceAtLeast(sum)
         }
         return max
