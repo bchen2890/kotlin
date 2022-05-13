@@ -18,4 +18,18 @@ class MaximumProductSubarray {
         }
         return max
     }
+    /* Brute Force Optimized Solution. O(n).*/
+    fun solutionBruteForceOptimized(nums: IntArray): Int {
+        var max = nums[0]
+        var min = max
+        var res = max
+        for(i in 1 until nums.size){
+            val minTemp = min
+            val num = nums[i]
+            min = (max * num).coerceAtMost(num.coerceAtMost(min*num))
+            max = (minTemp * num).coerceAtLeast(num.coerceAtLeast(max*num))
+            res = res.coerceAtLeast(max)
+        }
+        return res
+    }
 }

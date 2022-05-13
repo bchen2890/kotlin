@@ -27,5 +27,7 @@ internal class MaximumProductSubarrayTest {
     private fun checkMax(nums:IntArray, expected:Int){
         var sol = testMaxProdSubarray.solutionBruteForce(nums);
         assertEquals(expected,sol)
+        sol = testMaxProdSubarray.solutionBruteForceOptimized(nums);
+        assertEquals(expected,sol)
     }
 }
