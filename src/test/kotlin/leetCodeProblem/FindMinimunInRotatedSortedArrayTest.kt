@@ -27,5 +27,7 @@ internal class FindMinimunInRotatedSortedArrayTest {
     private fun checkMin(nums:IntArray, expected:Int){
         var sol = testMinRotate.solutionBruteForceOptimized(nums);
         assertEquals(expected,sol)
+        sol = testMinRotate.solutionBinarySearch(nums);
+        assertEquals(expected,sol)
     }
 }
