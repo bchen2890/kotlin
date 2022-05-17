@@ -9,22 +9,26 @@ internal class SearchInRotatedSortedArrayTest{
     fun case1() {
         val nums = intArrayOf(4,5,6,7,0,1,2)
         val target = 4;
-        checkTarget(nums, target);
+        val expected = 0;
+        checkTarget(nums, target, expected);
     }
     @Test
     fun case2() {
         val nums = intArrayOf(4,5,6,7,0,1,2)
         val target = 3;
-        checkTarget(nums, target);
-    }
+        val expected = -1;
+        checkTarget(nums, target, expected);    }
     @Test
     fun case3() {
         val nums = intArrayOf(1)
         val target = 0;
-        checkTarget(nums, target);
+        val expected = -1;
+        checkTarget(nums, target, expected);
     }
-    private fun checkTarget(nums:IntArray, target:Int){
+    private fun checkTarget(nums:IntArray, target:Int, expected:Int){
         var sol = testSearchRotate.solutionBruteForceOptimized(nums, target);
-        assertEquals(target,nums[sol])
+        assertEquals(expected,sol)
+        testSearchRotate.solutionBinarySearch(nums, target);
+        assertEquals(expected,sol)
     }
 }
